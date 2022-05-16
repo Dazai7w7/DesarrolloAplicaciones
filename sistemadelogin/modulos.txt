@@ -1,0 +1,1 @@
+npm i express express-handlebars express-sesion mysql express-mysql-sesion morgan bcryptjs passport passport-local timeago.js connect-flash express-validator
