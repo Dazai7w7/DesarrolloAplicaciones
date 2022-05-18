@@ -28,7 +28,7 @@ function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                       BorjaScript
+                       TheCapibaras
                     </Typography>
 
                     <IconButton color="inherit">

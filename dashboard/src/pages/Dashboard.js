@@ -4,7 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Navbar from "../components/Navbar";
 import 'fontsource-roboto';
 import '../assets/css/Dashboard.css';
-import YouTubeIcon from '@material-ui/icons/YouTube';
+import DiningIcon from '@mui/icons-material/Dining';
 import PublicIcon from '@material-ui/icons/Public';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import CardsHeader from '../components/CardsHeader';
@@ -70,30 +70,30 @@ function Dashboard(props) {
 
                 
                 <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                   <CardsHeader icono={<YouTubeIcon className={classes.iconos}/>} titulo="CANAL" texto="BorjaScript" color="rgba(248,80,50,1)" font="white"/>
+                   <CardsHeader icono={<DiningIcon className={classes.iconos}/>} titulo="Alimentacion" texto="Recomendaciones de alimentacion" color="rgba(248,80,50,1)" font="white"/>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                <CardsHeader icono={<PublicIcon className={classes.iconos}/>} titulo="PAÍS" texto="México" color="rgba(248,80,50,1)" font="white"/>
+                <CardsHeader icono={<PublicIcon className={classes.iconos}/>} titulo="PAÍS" texto="Chile" color="rgba(248,80,50,1)" font="white"/>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                <CardsHeader icono={<VideocamIcon className={classes.iconos}/>} titulo="CANTIDAD DE VÍDEOS" texto="85" color="rgba(248,80,50,1)" font="white"/>
+                <CardsHeader icono={<VideocamIcon className={classes.iconos}/>} titulo="Cantidad de Ejercicio" texto="85" color="rgba(248,80,50,1)" font="white"/>
                 </Grid>
 
                 <Grid container spacing={1} className={classes.container} xs={12} sm={12} md={6} lg={6} xl={6}>
                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="SUSCRIPTORES" texto="692"/>
+                    <Cards titulo="Recomendaciones" texto="Rutinas recomendadas"/>
                     </Grid>
 
                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="VISUALIZACIONES" texto="111,092"/>
+                    <Cards titulo="Altura" texto="1,70"/>
                     </Grid>
 
                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="TIEMPO VISUALIZACIÓN" texto="2,504 horas"/>
+                    <Cards titulo="Tiempo" texto="Aproximacion de tiempo que se demorara en llegar a su estado ideal"/>
                     </Grid>
 
                     <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    <Cards titulo="PORCENTAJE IMPRESIONES" texto="14.2%"/>
+                    <Cards titulo="Porcentaje de masa corporal" texto="14.2%"/>
                     </Grid>
 
                     </Grid>

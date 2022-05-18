@@ -7,7 +7,7 @@ function Graphics(props) {
         labels:["Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto"],
         datasets:[
             {
-            label:"Horas de Visualización por Mes",
+            label:"Tiempo estimado para alcanzar la condicion esperada",
             fill: false,
             backgroundColor: 'rgba(73,155,234,1)',
             borderColor:'rgba(73,155,234,1)',
