@@ -39,6 +39,28 @@ app.post('/api/login', (req, res) => {
 			}
 		}
 	})
+
+	app.post('/register', async (req, res)=>{
+		const {username, password} = req.body
+		const values = [username, password]
+		var connection = mysql.createConnection(credentials)
+		connection.query('INSERT INTO users SET ?',{ username:username, password:password}, async, (error, results)=>{
+			if(error){
+				console.log(error);
+			}else{
+				res.render('register', {
+					alert: true,
+					alertTitle: "Registration",
+					alertMessage: "¡Successful Registration!",
+					alertIcon:'success',
+					showConfirmButton: false,
+					timer: 1500,
+					ruta: ''
+				});
+				//res.redirect('/');
+			}
+		});
+	})	
 	connection.end()
 })
 

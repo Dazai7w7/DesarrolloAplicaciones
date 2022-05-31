@@ -13,10 +13,21 @@ const Header = ({ setOpen }) => {
                     <MenuIcon />
                 </IconButton>
                 <Typography style={{ flexGrow: 1 }}>TheCapibaras Fit</Typography>
+                
+                <Button variant='text' color='inherit' onClick={() => {
+                    history.push('/app')
+                }}>Inicio</Button>
+                
+                <Button variant='text' color='inherit'>
+                    Planes/Precios
+                </Button>
+                <Button variant='text' color='inherit' onClick={() => {
+                    history.push('/about')
+                }}>Sobre Nosotros</Button>
                 <Button variant='text' color='inherit' onClick={() => {
                     localStorage.clear()
                     history.push('/login')
-                }}>Log out</Button>
+                }}>Cerrar Sesion</Button>
             </Toolbar>
         </AppBar>
     )

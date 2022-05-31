@@ -1,12 +1,21 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import './App.css'
+import Card from "../Cards/Cards";
+import Table from "../Table/Table";
+import Media from "../Media/Media";
+
+
 
 const Dashboard = () => {
     return (
-        <div>
-            <Typography variant='h3'>Bienvenido</Typography>
+        <div className="Dashboard">
+            <div className="AppGlass">
+            <Media />
+            <Card />
+            <Table />
+            </div>   
         </div>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;

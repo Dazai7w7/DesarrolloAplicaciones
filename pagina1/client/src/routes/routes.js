@@ -3,6 +3,7 @@ import { HomeRedirect } from './RouteUtils'
 import RouteController from './RouteController'
 const Dashboard = lazy(() => import('../components/views/Dashboard'))
 const Login = lazy(() => import('../components/views/Login'))
+const About = lazy(() => import('../components/views/About'))
 const Register = lazy(() => import('../components/views/Register'))
 const Home = lazy(() => import('../components/views/Home'))
 
@@ -23,6 +24,18 @@ const routes = [
         render: props => <Register {...props} />
     },
     {
+        path:"/about",
+        exact: true,
+        render: props => <RouteController component= {Home} {...props} />,
+        routes: [{
+            path: "/about",
+            exact: true,
+            render: props => <RouteController component= {About} {...props}/>
+        }
+    ]
+        
+    },
+    {
         path: "/app",
         render: props => <RouteController component={Home} {...props} />,
         routes: [
@@ -31,8 +44,9 @@ const routes = [
                 exact: true,
                 render: props => <RouteController component={Dashboard} {...props} />
             }
+            
         ]
-    }
+    },
 ]
 
 export default routes
