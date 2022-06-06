@@ -28,7 +28,7 @@ const cards = [
 
 function Cards() {
   return (
-    <div className="container d-flex justify-content-center align-items-center h-100">
+    <div className="Cards">
       <div className="row">
         {cards.map(({ title, image, url, id }) => (
           <div className="col-md-4" key={id}>
