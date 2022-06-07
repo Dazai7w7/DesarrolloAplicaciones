@@ -1,38 +1,33 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
+import swal from "sweetalert";
 
 function App() {
   const [estatura, setEstatura] = useState(0);
   const [peso, setPeso] = useState(0);
 
-  const [employeeList, setEmployeeList] = useState([]);
+  const [registroLista, setEmployeeList] = useState([]);
 
   const addRegistro = () => {
-    Axios.post("http://localhost:3001/create", {
+    Axios.post("http://localhost:3001/agregar", {
       estatura: estatura,
       peso: peso
     }).then(() => {
-      setEmployeeList([
-        ...employeeList,
-        {
-          estatura: estatura,
-          peso: peso
-        },
-      ]);
+      swal("Ingreso Exitoso!")
     });
   };
 
   const verRegistro = () => {
-    Axios.get("http://localhost:3001/employees").then((response) => {
+    Axios.get("http://localhost:3001/registros").then((response) => {
       setEmployeeList(response.data);
     });
   };
 
   const borarRegistro = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+    Axios.delete(`http://localhost:3001/borrar/${id}`).then((response) => {
       setEmployeeList(
-        employeeList.filter((val) => {
+        registroLista.filter((val) => {
           return val.id !== id;
         })
       );
@@ -48,6 +43,7 @@ function App() {
           onChange={(event) => {
             setEstatura(event.target.value);
           }}
+          placeholder="Ingrese estatura en metros"
         />
         <label>Peso:</label>
         <input
@@ -55,6 +51,7 @@ function App() {
           onChange={(event) => {
             setPeso(event.target.value);
           }}
+          placeholder="Ingrese peso en kg"
         />
         
         <button onClick={addRegistro}>Agregar registro</button>
@@ -62,11 +59,11 @@ function App() {
       <div className="employees">
         <button onClick={verRegistro}>Mostrar registros</button>
 
-        {employeeList.map((val, key) => {
+        {registroLista.map((val, key) => {
           return (
             <div className="employee">
               <div>
-                <h3>Estatura: {val.estatura} cm.</h3>
+                <h3>Estatura: {val.estatura} m.</h3>
                 <h3>Peso: {val.peso} kg.</h3>
                 <h3>IMC: {val.imc}</h3>
       
