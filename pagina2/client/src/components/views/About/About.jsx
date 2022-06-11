@@ -7,8 +7,7 @@ function About(){
     return (
         <div className="text-center">
             <h1>
-                Este es un dashboard creado por TheCapibaras para fines estudiantiles, en futuras actualizaciones
-                iremos actualizando esta parte
+            ¿Quién no recuerda el “If you smell what The Rock is cooking”, de The Rock?
             </h1>
         </div>
     );

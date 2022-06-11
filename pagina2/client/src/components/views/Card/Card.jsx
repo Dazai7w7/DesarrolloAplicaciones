@@ -23,7 +23,7 @@
             className="btn btn-outline-secondary border-0"
             rel="noreferrer"
           >
-            Go to {title}
+            Ir a {title}
           </a>
         </div>
       </div>

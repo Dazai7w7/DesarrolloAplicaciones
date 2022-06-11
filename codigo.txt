@@ -1,3 +1,0 @@
-npm i react-router-dom
-npm install @material-ui/core @material-ui/icons fontsource-roboto
-npm install react-chartjs-2 chart.js
