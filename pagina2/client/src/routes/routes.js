@@ -1,8 +1,6 @@
 import React, { lazy } from 'react'
 import { HomeRedirect } from './RouteUtils'
 import RouteController from './RouteController'
-
-
 const Dashboard = lazy(() => import('../components/views/Dashboard'))
 const Login = lazy(() => import('../components/views/Login'))
 const About = lazy(() => import('../components/views/About'))
