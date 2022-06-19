@@ -10,7 +10,6 @@ const cards = [
     id: 1,
     title: "Ingresa tus Datos",
     image: image1,
-    url: "",
   },
   {
     id: 2,
@@ -30,9 +29,9 @@ function Cards() {
   return (
     <div className="Cards">
       <div className="row">
-        {cards.map(({ title, image, url, id }) => (
+        {cards.map(({ title, image, refs, id }) => (
           <div className="col-md-4" key={id}>
-            <Card imageSource={image} title={title} url={url} />
+            <Card imageSource={image} title={title} refs={refs} />
           </div>
         ))}
       </div>

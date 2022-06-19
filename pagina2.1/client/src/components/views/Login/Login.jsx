@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import fondo from './fondo.jpg'
 import { LockOutlined as LockOutlinedIcon } from '@material-ui/icons'
 import axios from 'axios'
+import "./Login.css"
 import { useHistory } from 'react-router'
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Register = () => {
+const Login = () => {
     const [body, setBody] = useState({ username: '', password: '' })
     const { push } = useHistory()
     const classes = useStyles()
@@ -54,9 +55,10 @@ const Register = () => {
             [name]: value
         })
     }
-    
+
+
     const onSubmit = () => {
-        axios.post('http://localhost:4000/api/register', body)
+        axios.post('http://localhost:4000/api/login', body)
             .then(({ data }) => {
                 localStorage.setItem('auth', '"yes"')
                 push('/app')
@@ -64,6 +66,10 @@ const Register = () => {
             .catch(({ response }) => {
                 console.log(response.data)
             })
+    }
+
+    const onSubmitRegister = () => {
+        push('/register')
     }
 
     return (
@@ -105,7 +111,17 @@ const Register = () => {
                             className={classes.button}
                             onClick={onSubmit}
                         >
-                            Registrate
+                            Ingresar
+                        </Button>
+                        <h1>¿No tienes cuenta?</h1>
+                        <Button
+                            fullWidth
+                            variant='contained'
+                            color='secondary'
+                            className={classes.button}
+                            onClick={onSubmitRegister}
+                        >
+                            Registrar
                         </Button>
                     </form>
                 </div>
@@ -114,4 +130,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Login

@@ -42,8 +42,8 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Login = () => {
-    const [body, setBody] = useState({ username: '', password: '' })
+const Register = () => {
+    const [body, setBody] = useState({ username: '', password: '', name: '' })
     const { push } = useHistory()
     const classes = useStyles()
 
@@ -54,13 +54,12 @@ const Login = () => {
             [name]: value
         })
     }
-
-
+    
     const onSubmit = () => {
-        axios.post('http://localhost:4000/api/login', body)
+        axios.post('http://localhost:4000/api/register', body)
             .then(({ data }) => {
                 localStorage.setItem('auth', '"yes"')
-                push('/app')
+                push('/login')
             })
             .catch(({ response }) => {
                 console.log(response.data)
@@ -83,7 +82,18 @@ const Login = () => {
                             color='primary'
                             margin='normal'
                             variant='outlined'
-                            label='Username'
+                            label='Nombre'
+                            value={body.name}
+                            onChange={inputChange}
+                            name='name'
+                        />
+                        <TextField
+                            fullWidth
+                            autoFocus
+                            color='primary'
+                            margin='normal'
+                            variant='outlined'
+                            label='Usuario'
                             value={body.username}
                             onChange={inputChange}
                             name='username'
@@ -94,7 +104,7 @@ const Login = () => {
                             color='primary'
                             margin='normal'
                             variant='outlined'
-                            label='Password'
+                            label='Contraseña'
                             value={body.password}
                             onChange={inputChange}
                             name='password'
@@ -106,7 +116,7 @@ const Login = () => {
                             className={classes.button}
                             onClick={onSubmit}
                         >
-                            Ingresar
+                            Registrate
                         </Button>
                     </form>
                 </div>
@@ -115,4 +125,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

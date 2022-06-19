@@ -29,3 +29,6 @@
 .card-img-top:hover {
   transform: scale(1.8);
 }
+.button{
+  font-size: 5rem;
+}

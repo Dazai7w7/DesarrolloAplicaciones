@@ -1,10 +1,12 @@
 
   import React from "react";
   import PropTypes from "prop-types";
-  
+  import Axios from "axios";
   import './Card.css'; 
+  import { Redirect, useHistory } from "react-router-dom";
   
-  function Card({ imageSource, title, text, url }) {
+  function Card ({ imageSource, title, text, url, setOpen }) {
+    const history = useHistory()
     return (
       <div className="card text-center bg-dark animate__animated animate__fadeInUp">
         <div className="overflow">
@@ -17,24 +19,17 @@
               ? text
               : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam deserunt fuga accusantium excepturi quia, voluptates obcaecati nam in voluptas perferendis velit harum dignissimos quasi ex? Tempore repellat quo doloribus magnam."}
           </p>
-          <a
-            href={url ? url : "#!"}
-            target="_blank"
-            className="btn btn-outline-secondary border-0"
-            rel="noreferrer"
-          >
-            Ir a {title}
-          </a>
+          <button variant = 'text' color = 'inherit'onClick={() => {
+                    history.push('/calculator')}}>
+            Ingresa!
+          </button>
+         
         </div>
+        
       </div>
     );
   }
+
   
-  Card.propTypes = {
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string,
-    url: PropTypes.string,
-    imageSource: PropTypes.string
-  };
-  
-  export default Card;
+
+export default Card
