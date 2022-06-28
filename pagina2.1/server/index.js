@@ -59,32 +59,44 @@ app.post('/api/login', async (req, res) => {
 	});
 });
 
-// app.post('/api/login', async (req, res) => {
-// 	try{
-// 		var connection = mysql.createConnection(credentials);
-// 		const { username, password } = req.body;
-// 		const passwordHash = bcrypt.hash(password, 10);
-// 		const user = await connection.query('SELECT * FROM users WHERE user = ?', [username],
-// 		(error, results) =>{
-// 			if (error) {
-// 				res.status(500).send(error);
-// 			}
-// 		});
-
-// 		if (user){
-// 			const validarPass = await bcrypt.compare(passwordHash, user.pass);
-// 			if (validarPass){
-// 				res.status(200).send('Login exitoso!');
-// 			}else{
-// 				res.send('Contraseña errónea!');
-// 			}
-// 		}else{
-// 			res.status(400).send('Usuario no encontrado!');
-// 		}
-// 	}catch(error){
-// 		console.log(error);
-// 		res.status(500).send('Algo salió mal :/');
-// 	}
-// });
+app.post("/agregar", (req, res) => {
+	const estatura = req.body.estatura;
+	const peso = req.body.peso;
+	const imc = (peso/(estatura)**2);
+	let f = new Date();
+	let fecha=(f.getFullYear() + "." + (f.getMonth() +1) + "." +f.getDate());
+	db.query(
+	  "INSERT INTO prueba (estatura, peso, fecha, imc) VALUES (?,?,?,?)",
+	  [estatura, peso, fecha, imc],
+	  (err, result) => {
+		if (err) {
+		  console.log(err);
+		} else {
+		  res.send("Valores Ingresados");
+		}
+	  }
+	);
+  });
+  
+  app.get("/registros", (req, res) => {
+	db.query("SELECT estatura,peso,SUBSTRING(fecha,1,10) As fecha,imc FROM prueba " , (err, result) => {
+	  if (err) {
+		console.log(err);
+	  } else {
+		res.send(result);
+	  }
+	});
+  });
+  
+  app.delete("/borrar/:id", (req, res) => {
+	const id = req.params.id;
+	db.query("DELETE FROM prueba WHERE id = ?", id, (err, result) => {
+	  if (err) {
+		console.log(err);
+	  } else {
+		res.send(result);
+	  }
+	});
+  });
 
 app.listen(4000, () => console.log('hola soy el server de TheCapibaras inc'));
